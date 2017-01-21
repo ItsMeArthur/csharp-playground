@@ -42,10 +42,19 @@ namespace Grades
             {
                 if (!string.IsNullOrEmpty(value))
                 {
+                    if (value != _name)
+                    {
+                        //Invoke the delegate
+                        NameChanged(this, new NameChangedEventArgs { OldName = _name, NewName = value });
+                    }
                     _name = value;
                 }
             }
         }
+
+        //This field allows people to hook code to this delegate. Code hooked up to this delegate
+        //will be executed when the delegate it's "triggered".
+        public event NameChangedDelegate NameChanged;
 
         //List of grades contained in the gradebook
         private List<float> grades;
