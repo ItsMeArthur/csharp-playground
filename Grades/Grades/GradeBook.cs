@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Grades
 {
-    public class GradeBook
+    public class GradeBook : IEnumerable
     {
         public GradeBook()
         {
@@ -31,6 +32,11 @@ namespace Grades
         public void AddGrade(float grade)
         {
             grades.Add(grade);
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            return grades.GetEnumerator();
         }
 
         //Public field that holds the name of the gradebook
