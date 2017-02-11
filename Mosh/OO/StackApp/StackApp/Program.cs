@@ -15,7 +15,6 @@ namespace StackApp
             stack.Push(2);
             stack.Push(3);
             stack.Push(4);
-            stack.Push("teste");
 
 
 
